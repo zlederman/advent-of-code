@@ -15,19 +15,16 @@
 (defn get-top-three-total [coll-of-total]
   (reduce + 0 (take-last 3 (sort coll-of-total)))
   )
- 
-(let [coll-total-cals (map get-total-cals
+
+(defn exercise-one [file-name]
+   (let [coll-total-cals (map get-total-cals
                            (seperate
-                            (open-file "aoc-day-1/data")))] 
-  {
-   :top-three (get-top-three-total coll-total-cals)
+                            (open-file file-name)))]
+  {:top-three (get-top-three-total coll-total-cals)
    :number-one (apply max coll-total-cals)})
+)
 
-
-
-
-
-
+(exercise-one "aoc-day-1/data")
 
 
 
